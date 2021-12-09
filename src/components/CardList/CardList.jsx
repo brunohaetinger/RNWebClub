@@ -2,13 +2,12 @@ import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {Card} from '../Card/Card';
 
+const NUM_CARDS = 5;
+
 export const CardList = () => {
   return (
     <View style={styles.cardList}>
-      <Card title="Card 1" />
-      <Card title="Card 2" />
-      <Card title="Card 3" />
-      <Card title="Card 4" />
+      { Array.from({length: NUM_CARDS}).map((item, index) => <Card title={`Card ${index + 1}`} key={String(index)}/>)}
     </View>
   );
 };
