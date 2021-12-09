@@ -1,15 +1,12 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, {useEffect, useState} from 'react';
-import {SafeAreaView, ScrollView, StatusBar, View} from 'react-native';
+import {SafeAreaView, ScrollView, StyleSheet, View} from 'react-native';
 import {CardList} from './src/components/CardList/CardList';
 import {Section} from './src/components/Section/Section';
 import {Colors} from './src/contants/Colors';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const App = () => {
   const [canShowCardList, setCanShowCardList] = useState(false);
-  const backgroundStyle = {
-    backgroundColor: Colors.darker,
-  };
 
   useEffect(() => {
     const storeData = async value => {
@@ -24,11 +21,10 @@ const App = () => {
   }, []);
 
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={'dark-content'} />
+    <SafeAreaView style={styles.background}>
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
+        style={styles.background}>
         <View
           style={{
             backgroundColor: Colors.black,
@@ -42,5 +38,12 @@ const App = () => {
     </SafeAreaView>
   );
 };
+
+const styles = StyleSheet.create({
+  background: {
+    backgroundColor: Colors.black,
+    height: '100%',
+  },
+});
 
 export default App;
