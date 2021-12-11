@@ -5,8 +5,8 @@
   "scripts": {
     "webpack:build": "rm -rf dist/ && webpack --mode=production --config ./web/webpack/webpack.config.js",
     "webpack:dev": "webpack serve --mode=development --config web/webpack/webpack.config.js",
-    "esbuild:dev": "esbuild --bundle index.web.js --outfile=dist/esbuild/bundle.web.js --resolve-extensions=.web.jsx,.web.js,.jsx,.js --loader:.js=jsx --sourcemap --watch",
-    "esbuild:build": "esbuild --bundle index.web.js --outfile=dist/esbuild/bundle.web.js --resolve-extensions=.web.jsx,.web.js,.jsx,.js --loader:.js=jsx --minify",
+    "esbuild:dev": "node web/esbuild/esbuild.dev.js",
+    "esbuild:build": "node web/esbuild/esbuild.build.js",
     "esbuild:serve": "cp web/esbuild/index.html dist/esbuild/index.html && esbuild --servedir=dist/esbuild",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
